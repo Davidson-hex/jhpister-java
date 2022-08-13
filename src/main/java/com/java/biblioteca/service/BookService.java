@@ -81,6 +81,10 @@ public class BookService {
     }
 
     public String locarLivro(Long id, String user, LocarDtO locarDtO) throws ParseException {
+        var existsBook = livroRepository.existsById(id);
+        if (!existsBook) {
+            return "Livro não econtrado";
+        }
         /*
         var existsLivro = livroRepository.existsById(id);
         if (!existsLivro) {
