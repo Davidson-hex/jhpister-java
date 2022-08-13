@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="movimentos">
+      <h2 data-cy="movimentosDetailsHeading"><span jhiTranslate="bibliotecaApp.movimentos.detail.title">Movimentos</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ movimentos.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.idUsuario">Id Usuario</span></dt>
+        <dd>
+          <span>{{ movimentos.idUsuario }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.idLivro">Id Livro</span></dt>
+        <dd>
+          <span>{{ movimentos.idLivro }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.locacao">Locacao</span></dt>
+        <dd>
+          <span>{{ movimentos.locacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.dataLocacao">Data Locacao</span></dt>
+        <dd>
+          <span>{{ movimentos.dataLocacao | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.previsaoDevolucao">Previsao Devolucao</span></dt>
+        <dd>
+          <span>{{ movimentos.previsaoDevolucao | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.dataDevolucao">Data Devolucao</span></dt>
+        <dd>
+          <span>{{ movimentos.dataDevolucao | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.devolucao">Devolucao</span></dt>
+        <dd>
+          <span>{{ movimentos.devolucao }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.status">Status</span></dt>
+        <dd>
+          <span>{{ movimentos.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.movimentos.proprietario">Proprietario</span></dt>
+        <dd>
+          <span>{{ movimentos.proprietario }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/movimentos', movimentos.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

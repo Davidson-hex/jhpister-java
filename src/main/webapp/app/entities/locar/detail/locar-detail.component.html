@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="locar">
+      <h2 data-cy="locarDetailsHeading"><span jhiTranslate="bibliotecaApp.locar.detail.title">Locar</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ locar.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.idUsuario">Id Usuario</span></dt>
+        <dd>
+          <span>{{ locar.idUsuario }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.idLivro">Id Livro</span></dt>
+        <dd>
+          <span>{{ locar.idLivro }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.locacao">Locacao</span></dt>
+        <dd>
+          <span>{{ locar.locacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.dataLocacao">Data Locacao</span></dt>
+        <dd>
+          <span>{{ locar.dataLocacao | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.previsaoDevolucao">Previsao Devolucao</span></dt>
+        <dd>
+          <span>{{ locar.previsaoDevolucao | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.dataDevolucao">Data Devolucao</span></dt>
+        <dd>
+          <span>{{ locar.dataDevolucao | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.devolucao">Devolucao</span></dt>
+        <dd>
+          <span>{{ locar.devolucao }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.status">Status</span></dt>
+        <dd>
+          <span>{{ locar.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.locar.proprietario">Proprietario</span></dt>
+        <dd>
+          <span>{{ locar.proprietario }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/locar', locar.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

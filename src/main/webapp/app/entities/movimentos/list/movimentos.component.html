@@ -1,0 +1,94 @@
+<div>
+  <h2 id="page-heading" data-cy="MovimentosHeading">
+    <span jhiTranslate="bibliotecaApp.movimentos.home.title">Movimentos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="bibliotecaApp.movimentos.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-movimentos"
+        [routerLink]="['/movimentos/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="bibliotecaApp.movimentos.home.createLabel"> Create a new Movimentos </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="movimentos?.length === 0">
+    <span jhiTranslate="bibliotecaApp.movimentos.home.notFound">No movimentos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="movimentos && movimentos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.idUsuario">Id Usuario</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.idLivro">Id Livro</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.locacao">Locacao</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.dataLocacao">Data Locacao</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.previsaoDevolucao">Previsao Devolucao</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.dataDevolucao">Data Devolucao</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.devolucao">Devolucao</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="bibliotecaApp.movimentos.proprietario">Proprietario</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movimentos of movimentos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/movimentos', movimentos.id, 'view']">{{ movimentos.id }}</a>
+          </td>
+          <td>{{ movimentos.idUsuario }}</td>
+          <td>{{ movimentos.idLivro }}</td>
+          <td>{{ movimentos.locacao }}</td>
+          <td>{{ movimentos.dataLocacao | formatMediumDate }}</td>
+          <td>{{ movimentos.previsaoDevolucao | formatMediumDate }}</td>
+          <td>{{ movimentos.dataDevolucao | formatMediumDate }}</td>
+          <td>{{ movimentos.devolucao }}</td>
+          <td>{{ movimentos.status }}</td>
+          <td>{{ movimentos.proprietario }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/movimentos', movimentos.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/movimentos', movimentos.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(movimentos)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

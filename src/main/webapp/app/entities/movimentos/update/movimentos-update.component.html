@@ -1,0 +1,134 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-movimentos-heading"
+        data-cy="MovimentosCreateUpdateHeading"
+        jhiTranslate="bibliotecaApp.movimentos.home.createOrEditLabel"
+      >
+        Create or edit a Movimentos
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.idUsuario" for="field_idUsuario">Id Usuario</label>
+          <input type="number" class="form-control" name="idUsuario" id="field_idUsuario" data-cy="idUsuario" formControlName="idUsuario" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.idLivro" for="field_idLivro">Id Livro</label>
+          <input type="number" class="form-control" name="idLivro" id="field_idLivro" data-cy="idLivro" formControlName="idLivro" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.locacao" for="field_locacao">Locacao</label>
+          <input type="number" class="form-control" name="locacao" id="field_locacao" data-cy="locacao" formControlName="locacao" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.dataLocacao" for="field_dataLocacao">Data Locacao</label>
+          <div class="input-group">
+            <input
+              id="field_dataLocacao"
+              data-cy="dataLocacao"
+              type="text"
+              class="form-control"
+              name="dataLocacao"
+              ngbDatepicker
+              #dataLocacaoDp="ngbDatepicker"
+              formControlName="dataLocacao"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataLocacaoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.previsaoDevolucao" for="field_previsaoDevolucao"
+            >Previsao Devolucao</label
+          >
+          <div class="input-group">
+            <input
+              id="field_previsaoDevolucao"
+              data-cy="previsaoDevolucao"
+              type="text"
+              class="form-control"
+              name="previsaoDevolucao"
+              ngbDatepicker
+              #previsaoDevolucaoDp="ngbDatepicker"
+              formControlName="previsaoDevolucao"
+            />
+            <button type="button" class="btn btn-secondary" (click)="previsaoDevolucaoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.dataDevolucao" for="field_dataDevolucao">Data Devolucao</label>
+          <div class="input-group">
+            <input
+              id="field_dataDevolucao"
+              data-cy="dataDevolucao"
+              type="text"
+              class="form-control"
+              name="dataDevolucao"
+              ngbDatepicker
+              #dataDevolucaoDp="ngbDatepicker"
+              formControlName="dataDevolucao"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataDevolucaoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.devolucao" for="field_devolucao">Devolucao</label>
+          <input type="number" class="form-control" name="devolucao" id="field_devolucao" data-cy="devolucao" formControlName="devolucao" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bibliotecaApp.movimentos.proprietario" for="field_proprietario">Proprietario</label>
+          <input
+            type="text"
+            class="form-control"
+            name="proprietario"
+            id="field_proprietario"
+            data-cy="proprietario"
+            formControlName="proprietario"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+
+entity Livro {
+	autor String,
+    titulo String,
+    dataCriacao LocalDate,
+    ativo Long,
+    idUsuarioCadastro Long,
+    proprietario String
+}
+
+entity Locar {
+	idUsuario Integer,
+    idLivro Integer,
+    locacao Integer,
+    dataLocacao LocalDate,
+    previsaoDevolucao LocalDate,
+    dataDevolucao LocalDate,
+    devolucao Integer,
+    status String,
+    proprietario String
+}
+
+entity Movimentos {
+	idUsuario Integer,
+    idLivro Integer,
+    locacao Integer,
+    dataLocacao LocalDate,
+    previsaoDevolucao LocalDate,
+    dataDevolucao LocalDate,
+    devolucao Integer,
+    status String,
+    proprietario String
+}
+
+// Set pagination options
+paginate Livro with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+dto Livro with mapstruct
+dto Locar with mapstruct
+dto Movimentos with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

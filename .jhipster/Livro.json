@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20220811140733",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "livro",
+  "fields": [
+    {
+      "fieldName": "autor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titulo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataCriacao",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "ativo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idUsuarioCadastro",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "proprietario",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Livro",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

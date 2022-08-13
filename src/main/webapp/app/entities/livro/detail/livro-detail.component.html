@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="livro">
+      <h2 data-cy="livroDetailsHeading"><span jhiTranslate="bibliotecaApp.livro.detail.title">Livro</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ livro.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.livro.autor">Autor</span></dt>
+        <dd>
+          <span>{{ livro.autor }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.livro.titulo">Titulo</span></dt>
+        <dd>
+          <span>{{ livro.titulo }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.livro.dataCriacao">Data Criacao</span></dt>
+        <dd>
+          <span>{{ livro.dataCriacao | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.livro.ativo">Ativo</span></dt>
+        <dd>
+          <span>{{ livro.ativo }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.livro.idUsuarioCadastro">Id Usuario Cadastro</span></dt>
+        <dd>
+          <span>{{ livro.idUsuarioCadastro }}</span>
+        </dd>
+        <dt><span jhiTranslate="bibliotecaApp.livro.proprietario">Proprietario</span></dt>
+        <dd>
+          <span>{{ livro.proprietario }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/livro', livro.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

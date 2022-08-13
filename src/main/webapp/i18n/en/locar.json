@@ -1,0 +1,32 @@
+{
+  "bibliotecaApp": {
+    "locar": {
+      "home": {
+        "title": "Locars",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Locar",
+        "createOrEditLabel": "Create or edit a Locar",
+        "notFound": "No Locars found"
+      },
+      "created": "A new Locar is created with identifier {{ param }}",
+      "updated": "A Locar is updated with identifier {{ param }}",
+      "deleted": "A Locar is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Locar {{ id }}?"
+      },
+      "detail": {
+        "title": "Locar"
+      },
+      "id": "ID",
+      "idUsuario": "Id Usuario",
+      "idLivro": "Id Livro",
+      "locacao": "Locacao",
+      "dataLocacao": "Data Locacao",
+      "previsaoDevolucao": "Previsao Devolucao",
+      "dataDevolucao": "Data Devolucao",
+      "devolucao": "Devolucao",
+      "status": "Status",
+      "proprietario": "Proprietario"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bibliotecaApp": {
+    "movimentos": {
+      "home": {
+        "title": "Movimentos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Movimentos",
+        "createOrEditLabel": "Create or edit a Movimentos",
+        "notFound": "No Movimentos found"
+      },
+      "created": "A new Movimentos is created with identifier {{ param }}",
+      "updated": "A Movimentos is updated with identifier {{ param }}",
+      "deleted": "A Movimentos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Movimentos {{ id }}?"
+      },
+      "detail": {
+        "title": "Movimentos"
+      },
+      "id": "ID",
+      "idUsuario": "Id Usuario",
+      "idLivro": "Id Livro",
+      "locacao": "Locacao",
+      "dataLocacao": "Data Locacao",
+      "previsaoDevolucao": "Previsao Devolucao",
+      "dataDevolucao": "Data Devolucao",
+      "devolucao": "Devolucao",
+      "status": "Status",
+      "proprietario": "Proprietario"
+    }
+  }
+}

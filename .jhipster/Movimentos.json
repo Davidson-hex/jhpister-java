@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20220811140735",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "movimentos",
+  "fields": [
+    {
+      "fieldName": "idUsuario",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idLivro",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "locacao",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dataLocacao",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "previsaoDevolucao",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataDevolucao",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "devolucao",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "proprietario",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Movimentos",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

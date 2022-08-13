@@ -18,7 +18,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 import tech.jhipster.config.JHipsterProperties;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class TokenProvider {
@@ -26,6 +29,8 @@ public class TokenProvider {
     private final Logger log = LoggerFactory.getLogger(TokenProvider.class);
 
     private static final String AUTHORITIES_KEY = "auth";
+
+    public static final String AUTHORIZATION_HEADER = "Authorization";
 
     private static final String INVALID_JWT_TOKEN = "Invalid JWT token.";
 
@@ -122,5 +127,19 @@ public class TokenProvider {
         }
 
         return false;
+    }
+
+    private String resolveToken(HttpServletRequest request) {
+        String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+
+    public String userName(HttpServletRequest request) {
+        Claims claims = jwtParser.parseClaimsJws(this.resolveToken(request)).getBody();
+        System.out.println("yay : " + claims.getSubject());
+        return claims.getSubject();
     }
 }
