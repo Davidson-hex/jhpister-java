@@ -1,5 +1,6 @@
 package com.java.biblioteca.web.rest;
 
+import com.java.biblioteca.domain.Movimentos;
 import com.java.biblioteca.repository.LivroRepository;
 import com.java.biblioteca.security.jwt.TokenProvider;
 import com.java.biblioteca.service.BookService;
@@ -22,6 +23,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -213,5 +215,23 @@ public class LivroResource {
     public String locarLivro(@PathVariable(value = "id") Long id, HttpServletRequest request, @RequestBody LocarDtO locarDtO) throws ParseException {
         var user = tokenProvider.userName(request);
         return bookService.locarLivro(id, user, locarDtO);
+    }
+
+    @GetMapping("/devolver/{id}")
+    public String devolverLivro(@PathVariable(value = "id") Long id, HttpServletRequest request) {
+        var user = tokenProvider.userName(request);
+        return bookService.devolverLivro(id, user);
+    }
+
+    @GetMapping("/umhistorico")
+    public  ResponseEntity<Object> umHistorico(HttpServletRequest request) {
+        var user = tokenProvider.userName(request);
+        var ob = bookService.umHistorico(user);
+        return ResponseEntity.status(HttpStatus.OK).body(ob);
+    }
+
+    @GetMapping("/historico")
+    public ResponseEntity<List<Movimentos>> historico() {
+        return ResponseEntity.status(HttpStatus.OK).body(bookService.historico());
     }
 }

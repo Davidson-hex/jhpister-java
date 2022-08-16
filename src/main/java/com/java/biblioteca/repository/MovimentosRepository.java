@@ -9,4 +9,9 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface MovimentosRepository extends JpaRepository<Movimentos, Long> {}
+public interface MovimentosRepository extends JpaRepository<Movimentos, Long> {
+
+    public Movimentos findByStatusAndProprietario(String status, String user);
+
+    public Movimentos findAllByProprietario(String user);
+}

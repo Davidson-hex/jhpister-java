@@ -14,10 +14,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LocarRepository extends JpaRepository<Locar, Long> {
 
-    public Optional<Locar> findByIdLivro(Long idLivro);
+    public Optional<Locar> findByIdLivro(Integer idLivro);
     public Optional<Locar> findByProprietario(String user);
 
-    public boolean existsByIdLivro(Long id);
+    public boolean existsByIdLivro(Integer id);
+
+    public boolean existsByProprietario(String user);
 
     public boolean existsByIdUsuario(Long id);
 
